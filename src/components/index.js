@@ -18,6 +18,7 @@ import wizardMonitoring from './wizard-monitoring/wizard-monitoring';
 import wizardRouter from './wizard-router/wizard-router';
 import wizardTunnel from './wizard-tunnel/wizard-tunnel';
 import loadFileForm from './load-file-form/load-file-form';
+import luciRef from './luci-ref/luci-ref';
 
 export default module('app.components', [
   authenticateModal.name,
@@ -38,4 +39,5 @@ export default module('app.components', [
   wizardRouter.name,
   wizardTunnel.name,
   loadFileForm.name,
+  luciRef.name,
 ]);

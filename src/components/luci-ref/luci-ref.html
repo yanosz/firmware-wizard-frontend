@@ -1,0 +1,14 @@
+<a ng-if="$ctrl.hasLuci" class="btn btn-default"
+  role="button" target="_blank" href="/cgi-bin/luci"
+  > {{ 'luci-ref.name' | translate }}
+
+
+
+</a>
+
+<a ng-if="!$ctrl.hasLuci" class="btn btn-default"
+    role="button" target="_blank" disabled="true"
+    uib-tooltip="{{ 'luci-ref.offline' | translate }}"
+    tooltip-placement="bottom"
+
+    >{{ 'luci-ref.name' | translate }}</a>

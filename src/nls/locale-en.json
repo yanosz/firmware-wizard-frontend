@@ -387,5 +387,9 @@
         "etx" : "Link Cost"
       }
     }
+  },
+  "luci-ref" : {
+    "name": "LEDE Configuration (LuCI)",
+    "offline": "Not installed"
   }
 }

@@ -383,5 +383,9 @@
         "etx": "Linkkosten"
       }
     }
+  },
+  "luci-ref" : {
+    "name": "Router Konfiguration (LuCI)",
+    "offline": "Nicht installiert"
   }
 }
