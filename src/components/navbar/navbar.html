@@ -21,11 +21,10 @@
       </div>
       <a href class="navbar-brand"
         ng-if="!$ctrl.session.connecting"
-        ng-click="$ctrl.showConnectModal()"
       >
         <i ng-if="$ctrl.session.connection"
           class="fa fa-fw fa-bolt text-success"
-          uib-tooltip="Connected to {{$ctrl.session.connection.apiUrl}}. Click to connect to another router."
+          uib-tooltip="Connected to {{$ctrl.session.connection.apiUrl}}."
           tooltip-placement="bottom"
         ></i>
         <i ng-if="!$ctrl.session.connection"
@@ -37,8 +36,8 @@
     </div>
     <div class="collapse navbar-collapse" uib-collapse="$ctrl.collapsed">
       <ul class="nav navbar-nav">
-        <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
-        <li ui-sref-active="active"><a ui-sref="wizard">Wizard</a></li>
+        <li ui-sref-active="active"><a ui-sref="home" translate>navbar.home</a></li>
+        <li ui-sref-active="active"><a ui-sref="wizard" translate>navbar.wizard</a></li>
 <li ui-sref-active="active" class="dropdown" uib-dropdown>
           <a href uib-dropdown-toggle>
             Status <i class="fa fa-fw fa-caret-down"></i>

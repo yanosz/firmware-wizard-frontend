@@ -1,7 +1,6 @@
 import { module } from 'angular';
 
 import authenticateModal from './authenticate-modal/authenticate-modal';
-import connectModal from './connect-modal/connect-modal';
 import home from './home/home';
 import languageDropdown from './language-dropdown/language-dropdown';
 import loadFileButton from './load-file-button/load-file-button';
@@ -22,7 +21,6 @@ import luciRef from './luci-ref/luci-ref';
 
 export default module('app.components', [
   authenticateModal.name,
-  connectModal.name,
   home.name,
   languageDropdown.name,
   loadFileButton.name,

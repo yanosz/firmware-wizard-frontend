@@ -3,6 +3,7 @@
   "intro": "Freifunk Berlin",
   "loadconfiglink": "Existierende Konfiguration laden",
   "loadrouterinfolink": "Routerinfos aktualisieren",
+  "welcome": "Willkommen bei Freifunk!",
   "description": "Freifunk ist ein unabhängiges, freies und offenes Communitynetzwerk, aufgebaut von Freiwilligen.",
   "freifunk": "Wir unterstützen das <a href=\"\" target=\"_blank\">Pico Peering Agreement</a>. Bitte informiere dich auch über unsere <a href=\"https://freifunk.net/en/what-is-it-about/our-vision/\" target=\"_blank\">Vision</a> und unser <a href=\"http://blog.freifunk.net/2015/memorandum-understanding\" target=\"_blank\">Memorandum Of Understanding</a>.",
   "offlineWarning": {
@@ -387,5 +388,9 @@
   "luci-ref" : {
     "name": "Router Konfiguration (LuCI)",
     "offline": "Nicht installiert"
+  },
+  "navbar": {
+    "home": "Start",
+    "wizard": "Assistent"
   }
 }
