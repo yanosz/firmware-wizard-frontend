@@ -396,5 +396,8 @@
   "navbar": {
     "home": "Home",
     "wizard": "Wizard"
+  },
+  "wizard" : {
+    "abstract": "This configuration wizard helps you to set up your router."
   }
 }
