@@ -3,7 +3,7 @@ import { module } from 'angular';
 import authenticateModal from './authenticate-modal/authenticate-modal';
 import home from './home/home';
 import languageDropdown from './language-dropdown/language-dropdown';
-import loadFileButton from './load-file-button/load-file-button';
+// import loadFileButton from './load-file-button/load-file-button';
 import navbar from './navbar/navbar';
 import statusOlsr from './status-olsr/status-olsr';
 import statusSystem from './status-system/status-system';
@@ -23,7 +23,7 @@ export default module('app.components', [
   authenticateModal.name,
   home.name,
   languageDropdown.name,
-  loadFileButton.name,
+//  loadFileButton.name,
   navbar.name,
   statusOlsr.name,
   statusSystem.name,

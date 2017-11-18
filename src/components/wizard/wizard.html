@@ -13,14 +13,6 @@
         <div class="ff-icon-body">
           <h1>{{'heading' | translate }}</h1>
           <p>{{ 'wizard.abstract' | translate }}</p>
-          <div>
-            Do you already have a config file?
-            <load-file-button accept=".json,application/json"
-              on-loaded="$ctrl.load(content)"
-            >
-              <i class="fa fa-fw fa-upload"></i> Load config
-            </load-file-button>
-          </div>
         </div>
       </div>
     </div>
@@ -103,9 +95,6 @@
       <span class="text-danger" translate ng-show="$ctrl.error">
         applyerror
       </span>
-      <button type="button" class="btn btn-default" ng-click="$ctrl.download()">
-        <i class="fa fa-fw fa-download"></i> <span translate>download</span>
-      </button>
 
       <button type="submit" class="btn btn-primary"
         ng-disabled="wizardForm.$invalid || !$ctrl.session.connection ||
