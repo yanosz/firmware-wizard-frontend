@@ -41,6 +41,14 @@
   </div>
 
   <div class="wizard-category">
+    <wizard-monitoring
+            contact="$ctrl.config.monitoring"
+            on-update="$ctrl.config.monitoring = monitoring"
+    ></wizard-monitoring>
+  </div>
+
+
+  <div class="wizard-category">
     <wizard-contact
       contact="$ctrl.config.contact"
       on-contact-update="$ctrl.config.contact = contact"
@@ -61,13 +69,6 @@
       ip="$ctrl.config.ip"
       on-update="$ctrl.config.ip = ip"
     ></wizard-ip>
-  </div>
-
-  <div class="wizard-category">
-    <wizard-monitoring
-      contact="$ctrl.config.monitoring"
-      on-update="$ctrl.config.monitoring = monitoring"
-    ></wizard-monitoring>
   </div>
 
   <div class="wizard-category">
