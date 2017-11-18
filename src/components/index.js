@@ -10,7 +10,7 @@ import statusSystem from './status-system/status-system';
 import wizard from './wizard/wizard';
 import wizardContact from './wizard-contact/wizard-contact';
 // import wizardDevice from './wizard-device/wizard-device';
-import wizardInternet from './wizard-internet/wizard-internet';
+// import wizardInternet from './wizard-internet/wizard-internet';
 import wizardIp from './wizard-ip/wizard-ip';
 import wizardLocation from './wizard-location/wizard-location';
 import wizardMonitoring from './wizard-monitoring/wizard-monitoring';
@@ -30,7 +30,7 @@ export default module('app.components', [
   wizard.name,
   wizardContact.name,
 //  wizardDevice.name,
-  wizardInternet.name,
+//  wizardInternet.name,
   wizardIp.name,
   wizardLocation.name,
   wizardMonitoring.name,
