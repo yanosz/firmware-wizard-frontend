@@ -9,7 +9,7 @@ import statusOlsr from './status-olsr/status-olsr';
 import statusSystem from './status-system/status-system';
 import wizard from './wizard/wizard';
 import wizardContact from './wizard-contact/wizard-contact';
-import wizardDevice from './wizard-device/wizard-device';
+// import wizardDevice from './wizard-device/wizard-device';
 import wizardInternet from './wizard-internet/wizard-internet';
 import wizardIp from './wizard-ip/wizard-ip';
 import wizardLocation from './wizard-location/wizard-location';
@@ -29,7 +29,7 @@ export default module('app.components', [
   statusSystem.name,
   wizard.name,
   wizardContact.name,
-  wizardDevice.name,
+//  wizardDevice.name,
   wizardInternet.name,
   wizardIp.name,
   wizardLocation.name,
