@@ -4,6 +4,7 @@ export default module('app.components.wizard-location', []).component('wizardLoc
   bindings: {
     name: '<',
     location: '<',
+    monitoring: '<',
     onLocationUpdate: '&',
   },
   controller: class WizardLocationCtrl {

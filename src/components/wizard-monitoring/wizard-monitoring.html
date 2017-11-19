@@ -11,6 +11,7 @@
       <span translate>.help</span>
     </p>
     <div class="wizard-margin-bottom">
+
       <div class="form-group">
         <label for="enableMonitoring" class="col-md-3 control-label" translate>
           .label
@@ -22,6 +23,21 @@
                 name="enableMonitoring" id="enableMonitoring">
               <span translate>.show</span>
             </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group has-feedback" uib-collapse="!$ctrl.newMonitoring.enabled">
+        <label for="server" class="col-md-3 control-label" translate>
+          .server
+        </label>
+        <div class="col-md-9">
+          <input type="text" class="form-control"
+                 name="server" id="server"
+                 translate translate-attr-placeholder=".server"
+                 data-ng-model="$ctrl.monitoring.server" >
+          <div class="help-block">
+            <div translate>.default</div>
           </div>
         </div>
       </div>

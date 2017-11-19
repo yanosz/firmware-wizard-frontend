@@ -70,14 +70,13 @@
     }
   },
   "contactDetails": {
-    "headline": "Kontaktdetails",
+    "headline": "Kontaktdaten",
     "name": {
       "label": "Dein Name",
       "placeholder": "Spitzname"
     },
     "email": {
       "label":"Deine E-Mail Adresse",
-      "help": "Deine E-Mail Adresse wird benötigt, wenn du VPN Zertifikat- und Schlüsselgenerierung bzw. die IP Registrierung aktivierst.",
       "placeholder": "name@example.org",
       "error": {
         "required":"Für die aktuelle Konfiguration wird deine E-Mail Adresse benötigt.",
@@ -100,10 +99,14 @@
         "help": "Wir kommunizieren über die <a href=\"https://lists.berlin.freifunk.net/cgi-bin/mailman/listinfo/berlin\" target=\"_blank\">Mailingliste der Berliner Freifunk Community</a>.",
         "helpoffline": "Du kannst dich auf der <a href=\"https://lists.berlin.freifunk.net/cgi-bin/mailman/listinfo/berlin\" target=\"_blank\">Mailinglistenseite der Berliner Freifunk Community</a> anmelden, sobald du wieder online bist."
       }
-    }
+    },
+    "disabled_due_to_monitoring" : "Bitte schalte das Monitoring ein, um deine Kontaktdaten zu übertragen."
+
   },
   "routerLocation": {
     "headline": "Routerstandort",
+    "disabled_due_to_monitoring" : "Bitte schalte das Monitoring ein um den Router, um deinen Router auf der Karte zu zeigen.",
+
     "help": "Die Koordinaten werden benutzte um deinen Router in der <a href=\"http://map.berlin.freifunk.net\" target=\"_blank\">Freifunkkarte</a> zu platzieren.",
     "getLocation": "Standort ermitteln",
     "geolocation": {
@@ -271,10 +274,13 @@
     }
   },
   "monitoring" : {
+    "server" : "Server",
     "headline" : "Monitoring",
-    "show" : "Öffentliches Monitoring - Dadurch können Freifunkas Netzwerkprobleme besser analysieren.",
+    "show" : "Öffentliches Monitoring - Zeigt Deinen Routerstatus auf der Karte an.",
     "label" : "Monitoring einschalten",
-    "help" : "Unter <a href=\"http://monitor.berlin.freifunk.net\" target=\"_blank\">http://monitor.berlin.freifunk.net</a> erreichst du den Monitoring Service der Berliner Community. Dort werden Daten über Übertragungsgeschwindigkeiten, Speicher, CPU und Netzwerkverbindungen gesammelt."
+    "help" : "Unter <a href=\"http://monitor.berlin.freifunk.net\" target=\"_blank\">http://map.kbu.freifunk.net</a> erreichst du den Monitoring Service. Dort werden Daten über Kontaktdaten, Standort, Übertragungsgeschwindigkeiten, Speicher, CPU und Netzwerkverbindungen gesammelt.",
+    "default": "Default: fdd3:5d16:b5dd:fc33:70d0:57ff:febb:8f14"
+
   },
   "advancedWifi": {
     "headline": "Erweiterte Wifi Optionen",
@@ -395,5 +401,6 @@
   },
   "wizard" : {
     "abstract": "Dieser Assitent hilft dir beim Einrichten deines Routers."
-  }
+  },
+  "disabled_due_to_monitoring" : "Schalte das Monitoring ein, um Kontaktdaten zu übertragen."
 }

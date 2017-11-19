@@ -6,6 +6,7 @@ export default module('app.components.wizard-contact', [])
       contact: '<',
       emailRequired: '<',
       onContactUpdate: '&',
+      monitoring: '<',
     },
     controller: class WizardContactCtrl {
       constructor($scope) {

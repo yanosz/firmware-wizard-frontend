@@ -8,6 +8,7 @@
       <span translate>.headline</span>
     </h2>
 
+    <div uib-collapse="!$ctrl.monitoring.enabled">
     <div class="form-group" translate-namespace=".name">
       <label for="name" class="col-md-3 control-label" translate>
         .label
@@ -52,44 +53,21 @@
               <span translate>.error.pattern</span>
             </div>
           </div>
-          <div translate>.help</div>
         </div>
       </div>
     </div>
     <div translate-namespace=".options">
       <h4 translate>.label</h4>
+        <p translate>.is-optional</p>
 
-      <div class="form-group" translate-namespace=".contactPage">
-        <label for="showOnContactPage" class="col-md-3 control-label" translate>
-          .label
-        </label>
-        <div class="col-md-9">
-          <div class="checkbox">
-            <label class="text-muted">
-              <input type="checkbox"
-                name="showOnContactPage" id="showOnContactPage"
-                data-ng-model="$ctrl.newContact.showOnContactPage">
-            <span translate>.help</span>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group" translate-namespace=".sendToMap">
-        <label for="sendToMap" class="col-md-3 control-label" translate>
-          .label
-        </label>
-        <div class="col-md-9">
-          <div class="checkbox">
-            <label class="text-muted">
-              <input type="checkbox" name="sendToMap" id="sendToMap"
-                ng-model="$ctrl.newContact.sendToMap">
-              <span translate>.help</span>
-            </label>
-          </div>
-        </div>
-      </div>
 
     </div>
+    </div>
   </div>
+    <div class="container" uib-collapse="$ctrl.monitoring.enabled" translate-namespace="contactDetails">
+        <p>
+            <span translate>.disabled_due_to_monitoring</span>
+        </p>
+
+    </div>
 </ng-form>

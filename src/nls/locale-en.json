@@ -77,7 +77,6 @@
     },
     "email": {
       "label":"Your email address",
-      "help": "Your email address is required if VPN cert/key generation or IP registration is activated below.",
       "placeholder": "name@example.org",
       "error": {
         "required":"A valid email address is required for the current configuration.",
@@ -86,6 +85,7 @@
     },
     "options": {
       "label": "Is it okay to be contacted by other Freifunkas?",
+      "is-optional" : "Providing contact details is <i>completely optional</i>. However, providing an email address is very helpful in case of errors. Please consider using a pseudonym and a corresponding email address if you want to remain anonymous.",
       "contactPage": {
         "label": "Show on Contact Page",
         "help": "If people connect to the Freifunk network, they can then see the contact data on <a href=\"http://frei.funk/cgi-bin/luci/freifunk/contact\" target=\"_blank\">frei.funk</a> (only visible within freifunk)."
@@ -100,10 +100,12 @@
         "help": "We communitcate via the mailing list of Berlin's <a href=\"https://lists.berlin.freifunk.net/cgi-bin/mailman/listinfo/berlin\" target=\"_blank\">freifunk community</a>.",
         "helpoffline": "Please visit <a href=\"https://lists.berlin.freifunk.net/cgi-bin/mailman/listinfo/berlin\" target=\"_blank\">the mailing list page</a> of Berlin's freifunk community, when you're online again. There you can subscribe to that list."
       }
-    }
+    },
+    "disabled_due_to_monitoring" : "Please enable Monitoring to transmit contact details."
   },
   "routerLocation": {
     "headline": "Router location",
+    "disabled_due_to_monitoring" : "Please enable Monitoring to transmit show your router on the map.",
     "help": "The geographic location is used to place your router on the Freifunk <a href=\"http://map.berlin.freifunk.net\" target=\"_blank\">map</a>.",
     "getLocation": "Get my location",
     "geolocation": {
@@ -273,10 +275,12 @@
     }
   },
   "monitoring" : {
+    "server" : "Server",
     "headline" : "Monitoring",
-    "show" : "Public monitoring - Enable it, so that Freifunkas are able to analyze network problems.",
+    "show" : "Public monitoring - Show your status on the map",
     "label" : "Enable Monitoring",
-    "help" : "Berlin community monitoring service is available to the public under <a href=\"http://monitor.berlin.freifunk.net\" target=\"_blank\">http://monitor.berlin.freifunk.net</a>. It collects information about transfer speeds, memory and CPU statistics and network connections."
+    "help" : "Monitoring services are available at <a href=\"https://map.kbu.freifunk.net\" target=\"_blank\">http://map.kbu.freifunk.net</a>. They collect information about postions, contacts, transfer speeds, memory and CPU statistics and network connections.",
+    "default": "Default: fdd3:5d16:b5dd:fc33:70d0:57ff:febb:8f14"
   },
   "advancedWifi": {
     "headline": "Advanced wifi options",

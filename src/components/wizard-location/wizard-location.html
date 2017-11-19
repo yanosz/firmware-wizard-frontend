@@ -6,10 +6,13 @@
     </span>
     <span translate>.headline</span>
   </h2>
-  <p>
+  <p uib-collapse="!$ctrl.monitoring.enabled">
     <span translate>.help</span>
   </p>
-  <div class="row">
+    <p uib-collapse="$ctrl.monitoring.enabled">
+            <span translate>.disabled_due_to_monitoring</span>
+    </p>
+  <div class="row" uib-collapse="!$ctrl.monitoring.enabled">
     <!-- map -->
     <div ng-if="$ctrl.online.isOnline">
       <div class="col-md-5">
@@ -108,4 +111,4 @@
     </div>
     <!-- / address -->
   </div>
-</div>
+  </div>
