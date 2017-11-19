@@ -26,12 +26,6 @@ export default module('app.components.wizard-ip', [])
 
       updateOutput(newIp) {
         const ip = copy(newIp);
-        if (!ip.meshLan && ip.v4) {
-          delete ip.v4.lan;
-        }
-        if (!ip.distribute) {
-          delete ip.v4ClientSubnet;
-        }
         this.onUpdate({ip});
       }
     },

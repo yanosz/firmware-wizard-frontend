@@ -85,6 +85,8 @@
     },
     "options": {
       "label": "Ist es ok für dich, wenn wir dich kontaktieren?",
+      "is-optional" : "Die Angabe von Kontaktdaten ist <i>komplett freiwillig</i>. Dennoch, eine E-Mail hilft sehr bei der Diagnose von Fehlern. Bitte nutze ein Pseudonym mit passender E-Mail-Adresse, falls Du anonym bleiben möchtest.",
+
       "contactPage": {
         "label": "Wird auf der Kontaktseite angezeigt.",
         "help": "Sobald sich Menschen zum Freifunknetzwerk verbinden, können sie die Kontaktdaten unter <a href=\"http://frei.funk/cgi-bin/luci/freifunk/contact\" target=\"_blank\">frei.funk</a> sehen (nur sichtbar im Freifunk)."
@@ -222,51 +224,24 @@
   },
   "ip": {
     "headline": "IP Adressen",
-    "help": "Um mit anderen Routern und Clients, die sich zu deinem Router verbinden, kommunizieren zu können benötigt dein Router IP Adressen. Freifunk benutzt sowohl IPv4 (veraltet) und IPv6 (aktuell)",
+    "help": "Um mit anderen Routern und Clients, die sich zu deinem Router verbinden, kommunizieren zu können benötigt dein Router IP Adressen. Freifunk benutzt sowohl IPv4 (veraltet) und IPv6 (aktuell).",
     "register": {
       "label": "Neue IP Adressen registrieren",
       "help": "Der Wizard registriert für dich automatisch IP Adressen im der Freifunk Berlin IP Registrierung. Du kannst das abwählen, wenn du bereits IP Adressen hast."
     },
     "v6Prefix": {
       "label": "IPv6 Prefix",
-      "help": "Das IPv6 Prefix wird genutzt um alle Netzwerk Interfaces deines Routers automatisch zu konfigurieren.",
       "error.required": "Das IPv6 prefix ist erforderlich.",
       "error.ipAddress": "Bitte gib ein IPv6 prefix ein.",
-      "error.ipPrefixMaxLength": "Das IPv6 Prefix darf nicht größer als /62 sein.",
-      "placeholder": "Beispiel: 2001:bf7:c4ff:3300::/60"
+      "error.ipPrefixMaxLength": "Das IPv6 Prefix muss ein /64 sein.",
+      "placeholder": "Beispiel: fd15:2cb5:eaab:1690::/64"
     },
-    "v4": {
-      "placeholder": "Beispiel: 10.31.133.{{40+index}}",
-      "error.ipAddress": "Das ist keine valide IPv4 Adresse.",
-      "error.ipSingle": "Hier musst du eine einzelne IPv4 Adresse eingeben.",
-      "error.ipSubnet": "Das ist kein valides IPv4 Subnetz.",
-      "error.ipSubnetSmall": "Das IPv4 Subnetz darf nicht größer als /30 sein.",
-      "wifi": {
-        "label": "Mesh IP {{index}}",
-        "help": "Eine einzelne IPv4 Addresse für das WIfi Device {{name}}."
-      },
-      "lan": {
-        "label": "Mesh IP LAN",
-        "help": "Eine einzelne IPv4 Adresse für das LAN Interface."
-      }
-    },
-    "meshLan": {
-      "help": "Erlaubt eine Verbindung zu anderen Geräten mit gleichen Einstellungen über den LAN Port deines Routers. Wenn du nur einen Router hast, kannst du diese Einstellung abwählen.",
-      "label": "Mesh via LAN"
-    },
-    "distribute": {
-      "label": "Client IP Adressen.",
-      "help": "Diese Einstellung solltest du einschalten.",
-      "subnet": {
-        "label": "Client IPv4 Subnetz",
-        "placeholder" :"Beispiel: 10.31.133.128/27",
-        "error.pattern":"Das ist kein valides IPv4 Subnetz.",
-        "help": "Das IPv4 Subnetz aus dem Clients eine IP Adresse erhalten, sobald sie sich mit deinem Router verbinden."
-      },
-      "expectedClients": {
-        "label": "Geschätzte Anzahl gleichzeitiger Clients",
-        "help": "Wieviele Geräte verbinden sich zu deinem Router zur selben Zeit?"
-      }
+    "v4Prefix": {
+      "label": "IPv4 Prefix",
+      "error.required": "Das IPv4 prefix ist erforderlich.",
+      "error.ipAddress": "Bitte gib ein IPv4 prefix ein.",
+      "error.ipPrefixMaxLength": "Das IPv4 Prefix sollte ein /24 sein.",
+      "placeholder": "Beispiel: 10.159.0.0/24"
     },
     "error": {
       "required": "Dieses Feld ist erforderlich, es sei denn du lässt IP Adressen automatisch registrieren.",
