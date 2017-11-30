@@ -45,7 +45,13 @@
             ip="$ctrl.config.ip"
             on-update="$ctrl.config.ip = ip"
     ></wizard-ip>
+
   </div>
+    <div class="wizard-category">
+        <wizard-vpn vpn="$ctrl.config.vpn" on-update="$ctrl.config.vpn = vpn">
+        </wizard-vpn>
+    </div>
+
 
   <div class="wizard-category">
     <wizard-monitoring
@@ -87,7 +93,7 @@
       </span>
 
       <button type="submit" class="btn btn-primary"
-        ng-disabled="wizardForm.$invalid || !$ctrl.session.connection ||
+        ng-disabled="false wizardForm.$invalid || !$ctrl.session.connection ||
           !$ctrl.session.authentication || $ctrl.submitting"
       >
         <i class="fa fa-fw" ng-class="{

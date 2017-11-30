@@ -7,6 +7,7 @@ export default module('app.components.wizard-tunnel', [])
       tunnel: '<',
       onUpdate: '&',
     },
+
     controller: class WizardTunnelCtrl {
       constructor($scope) {
         'ngInject';

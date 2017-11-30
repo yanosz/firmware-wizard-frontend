@@ -106,7 +106,7 @@
   "routerLocation": {
     "headline": "Router location",
     "disabled_due_to_monitoring" : "Please enable Monitoring to transmit show your router on the map.",
-    "help": "The geographic location is used to place your router on the Freifunk <a href=\"http://map.berlin.freifunk.net\" target=\"_blank\">map</a>.",
+    "help": "The geographic location is used to place your router on the Freifunk <a href=\"http://map.kbu.freifunk.net\" target=\"_blank\">map</a>.",
     "getLocation": "Get my location",
     "geolocation": {
       "label": "Geolocation",
@@ -377,5 +377,56 @@
   },
   "wizard" : {
     "abstract": "This configuration wizard helps you to set up your router."
+  },
+  "vpn" : {
+    "headline": "Internet Sharing",
+    "tunnel_operator_help" : "Use a VPN tunnel based on OpenVPN",
+    "help": "Using a VPN tunnel, you can share internet connection having an appropriate abuse desk.",
+    "tunnel_operator" : "Tunnel operator",
+    "operator" : {
+      "desc" : {
+        "cert": "Certificate (.crt, .cert, .pem)",
+        "key": "Key (.key, .pem)"
+      },
+      "none" : {
+        "name" : "No operator",
+        "help" : "Please choose an operator"
+      },
+      "ffeu" : {
+        "name" : "Freifunk Euskirchen",
+        "help" : "TODO kevin (FFRL e.V.)"
+      },
+      "kbu"  : {
+        "name": "Freifunk KBU",
+        "help" : "Based in AS50472 - see <a href='https://kbu.freifunk.net/wiki/vpn-exit'>https://kbu.freifunk.net/wiki/vpn-exit</a> for details"
+      },
+      "mullvad"  : {
+        "name": "Mullvad",
+        "account_no" : {
+          "desc" : "Account Number"
+        },
+        "help": "Get an account at <a href='https://mullvad.se'>https://mullvad.se</a>"
+      },
+      "openvpn" : {
+        "name": "OpenVPN (manual configuration)",
+        "help" : "Create your configuration manually (ie <tt>/lib/freifunk/vpn/client.conf</tt>) and update /etc/config/openvpn.conf accordingly. <br /> <i> Mind not pulling a default route (cf. <a href='https://github.com/yanosz/node-config/blob/master/freifunk/vpn/yanosz/client.conf'>https://github.com/yanosz/node-config/blob/master/freifunk/vpn/yanosz/client.conf</a>)"
+      },
+      "berlin_udp" : {
+        "name" : "Freifunk Berlin (fast: udp, no encryption)",
+        "help" : "vpn03 - see <a href='https://wiki.freifunk.net/Vpn03'>https://wiki.freifunk.net/Vpn03</a> for details."
+      },
+      "berlin_tcp" : {
+        "name" : "Freifunk Berlin (slow: tcp, encryption)",
+        "help" : "vpn03 - see <a href='https://wiki.freifunk.net/Vpn03'>https://wiki.freifunk.net/Vpn03</a> for details."
+      },
+      "yanosz" : {
+        "name" : "yanosz' test system",
+        "help" : "Unstable, sometimes broken, mail <a href='mailto:freifunk@yanosz.net'>freifunk@yanosz.net</a> for access"
+      }
+    }
+  },
+  "upload" : {
+    "selectfile" : "Select file"
   }
+
 }

@@ -1,0 +1,71 @@
+<ng-form name="vpnForm">
+    <div class="container" translate-namespace="vpn">
+        <h2>
+      <span class="fa-stack">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
+      </span>
+            <span translate>.headline</span>
+        </h2>
+        <p>
+            <span translate>.help</span>
+        </p>
+        <div class="form-group has-feedback">
+            <label for="tunnel-operator" class="col-md-3 control-label" translate>
+                .tunnel_operator
+            </label>
+            <div class="col-md-9">
+                <select class="form-control"
+                        id="tunnel-operator"
+                        name="tunnel-operator"
+                        data-ng-model="$ctrl.tunnelOperator"
+                        ng-options="o.name + '.name' | translate for o in $ctrl.allTunnelOperators">
+                </select>
+                <div class="help-block" translate>{{ $ctrl.tunnelOperator.name + ".help" }}</div>
+            </div>
+        </div>
+    <div class="form-group has-feedback"
+         ng-class="formFeedback('{{$ctrl.idPrefix}}.{{$ctrl.details.property}}')"
+         ng-repeat="field in $ctrl.tunnelOperator.fields"
+    >
+        <label for="{{field.key}}" class="col-md-6 control-label">
+            {{ field.desc | translate}}
+        </label>
+        <div class="col-md-6">
+            <input type="text" class="form-control"
+                   name="{{ field.key }}" id="{{ field.key }}"
+                   data-ng-model="field.input"
+                   data-ng-model-options="{ debounce: 500 }"
+            ></div>
+
+    </div>
+    <div class="form-group has-feedback"
+         ng-class="formFeedback('{{$ctrl.idPrefix}}.{{$ctrl.details.property}}')"
+         ng-repeat="upload in $ctrl.tunnelOperator.uploads"
+    >
+        <label for="{{upload.key}}" class="col-xs-6 control-label">
+            {{ upload.desc | translate}}
+        </label>
+        <div class="col-xs-6">
+            <load-file-button
+                    ng-if="!upload.fileContent"
+                    id="{{ upload.key }}"
+                    accept="{{upload.fileExtensions}}"
+                    base64="true"
+                    on-loaded="upload.fileContent = content"
+                    required="false"
+            >
+                <span translate="">upload.selectfile</span>
+            </load-file-button>
+            <div ng-if="upload.fileContent">{{ vpn.file.selected | translate }}
+                <i class="fa fa-fw fa-check text-success" aria-hidden="true"></i>
+                <button type="button" class="btn btn-sm btn-danger" ng-click="upload.fileContent = undefined"
+                        title="Remove file">
+                    <i class="fa fa-fw fa-trash-o" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</ng-form>
