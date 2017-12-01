@@ -97,7 +97,7 @@
         <i class="fa fa-fw fa-download"></i> <span translate>download</span>
       </button>
       <button type="submit" class="btn btn-primary"
-        ng-disabled="false wizardForm.$invalid || !$ctrl.session.connection ||
+        ng-disabled="wizardForm.$invalid || !$ctrl.session.connection ||
           !$ctrl.session.authentication || $ctrl.submitting"
       >
         <i class="fa fa-fw" ng-class="{
