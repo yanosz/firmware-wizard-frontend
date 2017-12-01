@@ -48,7 +48,9 @@
 
   </div>
     <div class="wizard-category">
-        <wizard-vpn vpn="$ctrl.config.vpn" on-update="$ctrl.config.vpn = vpn">
+        <wizard-vpn
+                vpn="$ctrl.config.vpn"
+                on-update="$ctrl.config.vpn = vpn">
         </wizard-vpn>
     </div>
 
@@ -91,7 +93,9 @@
       <span class="text-danger" translate ng-show="$ctrl.error">
         applyerror
       </span>
-
+      <button type="button" class="btn btn-default" ng-click="$ctrl.download()">
+        <i class="fa fa-fw fa-download"></i> <span translate>download</span>
+      </button>
       <button type="submit" class="btn btn-primary"
         ng-disabled="false wizardForm.$invalid || !$ctrl.session.connection ||
           !$ctrl.session.authentication || $ctrl.submitting"
