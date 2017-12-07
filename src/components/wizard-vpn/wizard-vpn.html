@@ -18,15 +18,16 @@
                 <select class="form-control"
                         id="tunnel-operator"
                         name="tunnel-operator"
-                        data-ng-model="$ctrl.tunnelOperator"
-                        ng-options="o.name + '.name' | translate for o in $ctrl.allTunnelOperators">
+                        data-ng-model="$ctrl.newVpn.tunnelOperator"
+                        ng-options="o as (o.id + '.name' | translate) for o in $ctrl.allTunnelOperators track by o.id" >
+                        ang-options="o.name + '.name' | translate for o in $ctrl.allTunnelOperators" >
                 </select>
-                <div class="help-block" translate>{{ $ctrl.tunnelOperator.name + ".help" }}</div>
+                <div class="help-block" translate>{{ $ctrl.newVpn.tunnelOperator.name + ".help" }}</div>
             </div>
         </div>
     <div class="form-group has-feedback"
          ng-class="formFeedback('{{$ctrl.idPrefix}}.{{$ctrl.details.property}}')"
-         ng-repeat="field in $ctrl.tunnelOperator.fields"
+         ng-repeat="field in $ctrl.newVpn.tunnelOperator.fields"
     >
         <label for="{{field.key}}" class="col-md-6 control-label">
             {{ field.desc | translate}}
@@ -41,7 +42,7 @@
     </div>
     <div class="form-group has-feedback"
          ng-class="formFeedback('{{$ctrl.idPrefix}}.{{$ctrl.details.property}}')"
-         ng-repeat="upload in $ctrl.tunnelOperator.uploads"
+         ng-repeat="upload in $ctrl.newVpn.tunnelOperator.uploads"
     >
         <label for="{{upload.key}}" class="col-xs-6 control-label">
             {{ upload.desc | translate}}

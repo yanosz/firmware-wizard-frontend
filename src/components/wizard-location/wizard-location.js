@@ -8,7 +8,7 @@ export default module('app.components.wizard-location', []).component('wizardLoc
     onLocationUpdate: '&',
   },
   controller: class WizardLocationCtrl {
-    constructor($http, $scope, leafletData, online) {
+    constructor($http, $scope, leafletData, online, $timeout) {
       'ngInject';
 
       this.$http = $http;
@@ -25,6 +25,8 @@ export default module('app.components.wizard-location', []).component('wizardLoc
         defaults: {
           scrollWheelZoom: false,
           doubleClickZoom: false,
+          tileLayer: 'http://tiles.aachen.freifunk.net/{z}/{x}/{y}.png',
+          zoom: 10,
         },
         events: {
           map: {
@@ -41,7 +43,6 @@ export default module('app.components.wizard-location', []).component('wizardLoc
           },
         },
       };
-
       $scope.$watch('$ctrl.name', this.updateName.bind(this));
       $scope.$watchCollection('$ctrl.location', this.updateLocationFromInput.bind(this));
       $scope.$on('leafletDirectiveMap.dblclick', (_, args) => this.updateLocationFromLatLng(args.leafletEvent.latlng));
@@ -85,8 +86,19 @@ export default module('app.components.wizard-location', []).component('wizardLoc
     }
 
     updateLocationFromLatLng(latlng) {
-      this.map.markers.router.lat = (latlng && latlng.lat) || 52.52080;
-      this.map.markers.router.lng = (latlng && latlng.lng) || 13.40942;
+        // Using json-stringify for generating a download,
+        // These numbers are converted into strings
+        // we need to fix this...
+      let lat = 52.52080;
+      let lng = 13.40942;
+      if (latlng && latlng.lat) {
+        lat = parseFloat(latlng.lat) || lat;
+      }
+      if (latlng && latlng.lng) {
+        lng = parseFloat(latlng.lng) || lng;
+      }
+      this.map.markers.router.lat = lat;
+      this.map.markers.router.lng = lng;
     }
 
     updateName(name) {

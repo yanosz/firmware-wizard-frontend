@@ -1,4 +1,5 @@
 import { copy, module } from 'angular';
+import IpConfig from '../../model/ip-config';
 
 export default module('app.components.wizard-ip', [])
   .component('wizardIp', {
@@ -25,7 +26,11 @@ export default module('app.components.wizard-ip', [])
       }
 
       updateOutput(newIp) {
-        const ip = copy(newIp);
+        const ip = new IpConfig({
+          v4Prefix: newIp.v4Prefix,
+          v6Prefix: newIp.v6Prefix,
+        });
+        console.log('Sending', {ip});
         this.onUpdate({ip});
       }
     },

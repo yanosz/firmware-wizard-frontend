@@ -10,6 +10,9 @@ export default module('app.components.wizard-monitoring', [])
       constructor($scope) {
         'ngInject';
 
+        this.newMonitoring = {
+          server: 'fdd3:5d16:b5dd:fc33:70d0:57ff:febb:8f14',
+        };
         $scope.$watch('$ctrl.monitoring', this.updateFromInput.bind(this), true);
         $scope.$watch('$ctrl.newMonitoring', this.updateOutput.bind(this), true);
       }
@@ -19,10 +22,10 @@ export default module('app.components.wizard-monitoring', [])
       }
 
       updateOutput(newMonitoring) {
-        let monitoring = copy(newMonitoring);
-        if (!monitoring.enabled) {
+        const monitoring = copy(newMonitoring);
+        /* if (!monitoring.enabled) {
           monitoring = {};
-        }
+        } */
         this.onUpdate({monitoring});
       }
     },

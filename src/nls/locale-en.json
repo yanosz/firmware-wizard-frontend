@@ -105,7 +105,7 @@
   },
   "routerLocation": {
     "headline": "Router location",
-    "disabled_due_to_monitoring" : "Please enable Monitoring to transmit show your router on the map.",
+    "disabled_due_to_monitoring" : "Please enable Monitoring to show your router on the map.",
     "help": "The geographic location is used to place your router on the Freifunk <a href=\"http://map.kbu.freifunk.net\" target=\"_blank\">map</a>.",
     "getLocation": "Get my location",
     "geolocation": {

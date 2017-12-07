@@ -12,7 +12,6 @@ export default module('app.components.wizard', [uiRouter])
       component: 'wizard',
       resolve: {
         // TODO: load config from router here
-        config: () => Promise.resolve({}),
         // André: 'ngInject' does not work for some reason,
         //         so let's make it explicit here
         // catch error (we only want to wait for the check to finish)
@@ -28,7 +27,7 @@ export default module('app.components.wizard', [uiRouter])
       config: '<',
     },
     controller: class WizardCtrl {
-      constructor($q, downloadFile, online, router, session) {
+      constructor($q, $scope, downloadFile, online, router, session) {
         'ngInject';
 
         this.$q = $q;
@@ -36,6 +35,26 @@ export default module('app.components.wizard', [uiRouter])
         this.online = online;
         this.router = router;
         this.session = session;
+        $scope.$watch('$ctrl.router', this.downloadConfig());
+      }
+
+
+      downloadConfig() {
+        this.router.getNetworkConfig().then((config) => {
+          this.networkConfig = config.values;
+        }).catch(() => {
+          this.networkConfig = {};
+        });
+        this.router.getFirewallConfig().then((config) => {
+          this.firewallConfig = config.values;
+        }).catch(() => {
+          this.firewallConfig = {};
+        });
+        this.router.getFreifunkConfig().then((config) => {
+          this.config = config;
+        }).catch(() => {
+          this.config = {};
+        });
       }
 
       download() {
@@ -67,7 +86,11 @@ export default module('app.components.wizard', [uiRouter])
         this.applied = false;
         this.submitting = true;
         this.error = undefined;
-        return this.router.applyConfig(newConfig).then(
+        return this.router.applyUCIConfig({
+          config: newConfig,
+          firewallConfig: this.firewallConfig,
+          networkConfig: this.networkConfig,
+        }).then(
           () => {
             this.submitting = false;
             this.applied = true;

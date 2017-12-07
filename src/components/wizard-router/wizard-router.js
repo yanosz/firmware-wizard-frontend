@@ -1,5 +1,6 @@
 import { module } from 'angular';
 import { crypt } from 'nano-md5';
+import RouterConfig from '../../model/router-config';
 
 export default module('app.components.wizard-router', [])
   .component('wizardRouter', {
@@ -55,11 +56,11 @@ export default module('app.components.wizard-router', [])
       }
 
       updateRouterOutput() {
-        const router = {
+        const router = new RouterConfig({
           name: this.name,
           passwordHash: this.passwordHash,
           sshkeys: this.sshkeysEnabled ? this.sshkeys : undefined,
-        };
+        });
         this.onRouterUpdate({router});
       }
     },
