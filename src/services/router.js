@@ -66,25 +66,25 @@ export default module('app.services.router', [])
       return this.call('uci', 'get', { config: 'network'});
     }
 
+    // TODO IP-Configuration, Freifunk-Configuration, etc. dann disable-next-line herausnehmen
+    // eslint-disable-next-line no-unused-vars
     applyUCIConfig({config, firewallConfig, networkConfig}) {
-      console.log('Applying using:', config, firewallConfig, networkConfig);
       let uploads = [];
       let uciCommands = '';
-      // Adding UCI-Settings for VPN
-      console.log('Vpn:', config.vpn);
+      let lineInFiles = [];
 
       [config.router, config.ip, config.vpn].forEach((conf) => {
         if (conf) {
           uploads = uploads.concat(conf.fileUploads());
           uciCommands += conf.uciSettings();
+          lineInFiles = lineInFiles.concat(conf.lineInFiles());
         }
       });
 
-      console.log('Uploads:', uploads);
-      console.log('commands:', uciCommands);
       return this.call('ffwizard.sh', 'apply', {
         uci_batch_commands_base64: this.$base64.encode(uciCommands),
         uploads,
+        lineInFiles,
         config});
     }
 

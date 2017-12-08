@@ -2,9 +2,8 @@ import {copy} from 'angular';
 
 export default class TunnelOperator {
 
-  constructor(id, {uciFlag, uploads, fields} = {}) {
+  constructor(id, {uploads, fields} = {}) {
     this.id = id;
-    this.uciFlag = uciFlag;
     this.uploads = uploads;
     this.fields = fields;
   }
@@ -12,7 +11,6 @@ export default class TunnelOperator {
     // Mullvad: Login via account-number
   static mullvad() {
     const op = new TunnelOperator('vpn.operator.mullvad', {
-      uciFlag: 'openvpn.mullvad.enabled',
       uploads: [],
       fields: [{
         key: 'account',
@@ -26,7 +24,6 @@ export default class TunnelOperator {
     // Yanosz: Upload: Key, certificate
   static yanosz() {
     return new TunnelOperator('vpn.operator.yanosz', {
-      uciFlag: 'openvpn.yanosz.enabled',
       uploads: [{
         key: 'cert',
         desc: 'vpn.operator.desc.cert',
@@ -46,7 +43,6 @@ export default class TunnelOperator {
 
   static berlin() {
     return new TunnelOperator('vpn.operator.berlin_udp', {
-      uciFlag: 'openvpn.berlin_udp.enabled',
       uploads: [{
         key: 'cert',
         desc: 'vpn.operator.desc.cert',
@@ -67,14 +63,12 @@ export default class TunnelOperator {
   static berlinTcp() {
     const template = copy(this.berlin());
     template.name = 'vpn.operator.berlin_tcp';
-    template.uciFlag = 'openvpn.berlin_udp.enabled';
     return template;
   }
 
     // Freifunk KBU: Login ueber cert / key
   static kbu() {
-    return new TunnelOperator('vpn.operator.kbu', {
-      uciFlag: 'openvpn.freifunk_kbu.enabled',
+    return new TunnelOperator('vpn.operator.freifunk_kbu', {
       uploads: [{
         key: 'cert',
         desc: 'vpn.operator.desc.cert',

@@ -53,7 +53,6 @@
         </div>
       </div>
     </div>
-
     <div class="form-group has-feedback"
       ng-class="{
         'has-success': (routerForm.password | fieldSuccess),
@@ -70,7 +69,7 @@
           translate
           data-ng-model="$ctrl.password"
           data-ng-model-options="{ debounce: 250 }"
-          ng-required="!$ctrl.router.passwordHash"
+          ng-required="$ctrl.emptyPassword && !$ctrl.router.passwordHash"
           data-ng-minlength="6">
         <span class="fa form-control-feedback"
           ng-class="{
@@ -92,7 +91,7 @@
       </div>
     </div>
 
-    <div class="form-group has-feedback"
+    <div uib-collapse="!$ctrl.password" class="form-group has-feedback"
       ng-class="{
         'has-success': (routerForm.passwordVerify | fieldSuccess),
         'has-error': (routerForm.passwordVerify | fieldError),

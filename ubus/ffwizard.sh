@@ -4,6 +4,25 @@
 . /lib/functions.sh
 . /usr/share/libubox/jshn.sh
 
+uploads() {
+    json=$1
+    i=0
+    if [ ! -z "${json}" ]; then
+        while true; do
+            logger "ok - Testing ${i} - ${json}";
+            upl=$(jsonfilter -s "${json}" -e "@[${i}]")
+            if [ -z "${upl}"]; then
+                break
+            fi
+            path=$(jsonfilter -s "${json}" -e "@[${i}].path")
+            content=$(jsonfilter -s "${json}" -e "@[${i}].contentBase64")
+            logger "Decoding Upload for ${path}"
+            echo -ne "${content}" | base64 -d > $path
+            i=`expr $i + 1`
+        done
+    fi
+}
+
 case "$1" in
   list)
     json_init
@@ -30,14 +49,15 @@ case "$1" in
 	  exit 0;
       ;;
       apply)
-        local json
+        logger "Appyling configuration"
         read json
-        local uci_batch_command
-        local config
-        local uploads
         config=$(jsonfilter -s "${json}" -e '@.config')
-        uploads=$(jsonfilter -s "${json}" -e '@.uploads[0]')
-        logger "Uploads[0]: ${uploads}"
+        uploads=$(jsonfilter -s "${json}" -e '@.uploads')
+        lineInFiles=$(jsonfilter -s "${json}" -e '@.lineInFiles')
+        logger "Got uploads..."
+        uploads "${uploads}" > /tmp/uplods
+        echo "${lineInFiles}" > /tmp/lineInFiles
+
         uci_batch_command=$(jsonfilter -s "${json}" -e '@.uci_batch_commands_base64')
         echo $uci_batch_command > /tmp/uci_batch_command
         base64 -d < /tmp/uci_batch_command | uci -q batch

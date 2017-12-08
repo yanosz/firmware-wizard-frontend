@@ -396,7 +396,7 @@
         "name" : "Freifunk Euskirchen",
         "help" : "TODO kevin (FFRL e.V.)"
       },
-      "kbu"  : {
+      "frefiunk_kbu"  : {
         "name": "Freifunk KBU",
         "help" : "Based in AS50472 - see <a href='https://kbu.freifunk.net/wiki/vpn-exit'>https://kbu.freifunk.net/wiki/vpn-exit</a> for details"
       },

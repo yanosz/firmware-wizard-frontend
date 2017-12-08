@@ -11,7 +11,6 @@ export default module('app.services.session', [])
       this.$q = $q;
       this.jsonrpc = jsonrpc;
       this.$window = $window;
-
       this.timeout = 3600; // seconds
       this.initialSessionId = '00000000000000000000000000000000';
 
@@ -58,6 +57,7 @@ export default module('app.services.session', [])
     }
 
     authenticate(username, password) {
+      this.emptyPassword = (password == null) || (password === '');
       if (!this.connection) {
         return this.$q.reject(new Error('not connected.'));
       }

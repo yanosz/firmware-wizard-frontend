@@ -233,14 +233,14 @@
       "label": "IPv6 Prefix",
       "error.required": "Das IPv6 prefix ist erforderlich.",
       "error.ipAddress": "Bitte gib ein IPv6 prefix ein.",
-      "error.ipPrefixMaxLength": "Das IPv6 Prefix muss ein /64 sein.",
+      "error.ipPrefixLength": "Das IPv6 Prefix muss /64 sein.",
       "placeholder": "Beispiel: fd15:2cb5:eaab:1690::/64"
     },
     "v4Prefix": {
       "label": "IPv4 Prefix",
       "error.required": "Das IPv4 prefix ist erforderlich.",
       "error.ipAddress": "Bitte gib ein IPv4 prefix ein.",
-      "error.ipPrefixMaxLength": "Das IPv4 Prefix sollte ein /24 sein.",
+      "error.ipPrefixLength": "Das IPv4 Prefix muss /24 sein.",
       "placeholder": "Beispiel: 10.159.0.0/24"
     },
     "error": {
@@ -396,7 +396,7 @@
         "name" : "Freifunk Euskirchen",
         "help" : "TODO kevin (FFRL e.V.)"
       },
-      "kbu"  : {
+      "freifunk_kbu"  : {
         "name": "Freifunk KBU",
         "help" : "Sitzt in AS50472 - Infos unter <a href='https://kbu.freifunk.net/wiki/vpn-exit'>https://kbu.freifunk.net/wiki/vpn-exit</a>"
       },

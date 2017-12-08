@@ -6,6 +6,7 @@ export default module('app.components.wizard-router', [])
   .component('wizardRouter', {
     bindings: {
       router: '<',
+      emptyPassword: '<',
       onRouterUpdate: '&',
     },
     controller: class WizardRouterCtrl {
@@ -14,6 +15,7 @@ export default module('app.components.wizard-router', [])
 
         this.session = session;
         $scope.$watchCollection('$ctrl.router', this.updateFromInput.bind(this));
+        $scope.$watchCollection('$ctrl.emptyPassword', this.updateEmptyPassword.bind(this));
         $scope.$watchGroup(
           [
             '$ctrl.name',
@@ -53,6 +55,10 @@ export default module('app.components.wizard-router', [])
         this.passwordHash = router.passwordHash;
         this.sshkeys = router.sshkeys;
         this.sshkeysEnabled = router.sshkeys !== undefined;
+      }
+
+      updateEmptyPassword(isEmptyPassword) {
+        this.isEmptyPassword = isEmptyPassword;
       }
 
       updateRouterOutput() {

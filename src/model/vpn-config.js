@@ -1,5 +1,6 @@
 import BaseConfig from './base-config';
 import TunnelOperator from './tunnel-operator';
+import FileUpload from './dto/file-upload';
 
 export default class VpnConfig extends BaseConfig {
 
@@ -13,7 +14,7 @@ export default class VpnConfig extends BaseConfig {
     if (this.tunnelOperator) {
       TunnelOperator.allOperators().forEach((op) => {
         if (op.uciFlag) {
-          result += `set ${op.uciFlag} = ${(op.name === this.tunnelOperator.name) ? 1 : 0}\n`;
+          result += `set openvpn.${op.uciFlag}.enabled = ${(op.name === this.tunnelOperator.name) ? 1 : 0}\n`;
         }
       });
       result += 'commit openvpn\n';
@@ -27,10 +28,10 @@ export default class VpnConfig extends BaseConfig {
     if (this.tunnelOperator.uploads) {
       this.tunnelOperator.uploads.forEach((upload) => {
         if (upload.dest && upload.fileContent) {
-          fileUploads.push({
+          fileUploads.push(new FileUpload({
             path: upload.dest,
-            content_base64: upload.fileContent,
-          });
+            contentBase64: upload.fileContent,
+          }));
         }
       });
     }
@@ -39,10 +40,10 @@ export default class VpnConfig extends BaseConfig {
       this.tunnelOperator.fields.forEach((field) => {
         console.log('Checking field', field);
         if (field.toFile) {
-          fileUploads.push({
+          fileUploads.push(new FileUpload({
             path: field.toFile,
             content: field.input,
-          });
+          }));
         }
       });
     }

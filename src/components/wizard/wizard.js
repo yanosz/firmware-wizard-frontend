@@ -11,7 +11,6 @@ export default module('app.components.wizard', [uiRouter])
       name: 'wizard',
       component: 'wizard',
       resolve: {
-        // TODO: load config from router here
         // André: 'ngInject' does not work for some reason,
         //         so let's make it explicit here
         // catch error (we only want to wait for the check to finish)

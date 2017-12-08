@@ -8,7 +8,7 @@ export default module('app.components.wizard-location', []).component('wizardLoc
     onLocationUpdate: '&',
   },
   controller: class WizardLocationCtrl {
-    constructor($http, $scope, leafletData, online, $timeout) {
+    constructor($http, $scope, leafletData, online) {
       'ngInject';
 
       this.$http = $http;
@@ -25,7 +25,7 @@ export default module('app.components.wizard-location', []).component('wizardLoc
         defaults: {
           scrollWheelZoom: false,
           doubleClickZoom: false,
-          tileLayer: 'http://tiles.aachen.freifunk.net/{z}/{x}/{y}.png',
+          tileLayer: '//tiles.aachen.freifunk.net/{z}/{x}/{y}.png',
           zoom: 10,
         },
         events: {

@@ -9,6 +9,9 @@ import 'angular-base64';  // ngSanitize module
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'leaflet';
 
+// Base64
+import 'base64-js';
+
 // other modules
 import 'angular-translate';                 // pascalprecht.translate module
 import 'angular-translate-loader-static-files';

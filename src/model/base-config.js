@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 export default class BaseConfig {
 
     // By default, there are no settings or upads
@@ -5,6 +6,10 @@ export default class BaseConfig {
     return '';
   }
   fileUploads() {
+    return [];
+  }
+
+  lineInFiles() {
     return [];
   }
 }
