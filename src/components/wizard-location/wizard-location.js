@@ -25,7 +25,7 @@ export default module('app.components.wizard-location', []).component('wizardLoc
         defaults: {
           scrollWheelZoom: false,
           doubleClickZoom: false,
-          tileLayer: '//tiles.aachen.freifunk.net/{z}/{x}/{y}.png',
+          tileLayer: 'https://tiles.aachen.freifunk.net/{z}/{x}/{y}.png',
           zoom: 10,
         },
         events: {

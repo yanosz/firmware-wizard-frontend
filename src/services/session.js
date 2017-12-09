@@ -80,7 +80,7 @@ export default module('app.services.session', [])
         .then(
           (data) => {
             this.authenticating = false;
-
+            this.isWrongPassword = false;
             // set expiry date
             expires.setSeconds(expires.getSeconds() + data.expires);
 
@@ -97,6 +97,7 @@ export default module('app.services.session', [])
           },
           // failed http request
           (data) => {
+            this.isWrongPassword = true;
             this.authenticating = false;
             this.error = data;
             return this.$q.reject(data);
