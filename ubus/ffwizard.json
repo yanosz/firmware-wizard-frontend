@@ -1,0 +1,30 @@
+{
+  "ffwizard": {
+    "description": "Access controls for Freifunk wizard",
+    "read": {
+      "ubus": {
+        "ffwizard.sh": [ "*" ],
+        "system": [ "*" ],
+        "network.wireless": [ "*" ],
+        "iwinfo": [ "*" ],
+        "uci" : [ "get" ]
+      },
+      "uci" : [ "*" ]
+    },
+    "write": {
+      "ubus": {
+        "ffwizard.sh": [ "*" ],
+        "system": [ "*" ]
+      }
+    }
+  },
+  "unauthenticated": {
+    "description": "Access some controls without login",
+    "read": {
+      "ubus": {
+        "olsrd": [ "*" ],
+        "system": [ "board", "info" ]
+      }
+    }
+  }
+}

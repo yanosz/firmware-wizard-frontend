@@ -21,7 +21,7 @@ export default class RouterConfig extends BaseConfig {
     const ret = super.lineInFiles();
     ret.push(new LineInFile({
       path: '/etc/shadow',
-      regexp: 'root:.*',
+      regexp: '^root:.*',
       line: `root:${this.passwordHash}:0:0:99999:7:::`,
     }));
     return ret;

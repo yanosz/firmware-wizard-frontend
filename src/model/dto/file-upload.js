@@ -1,4 +1,3 @@
-import { fromByteArray, toByteArray } from 'base64-js';
 /**
  * file-Upload DTO: Transfer Object for file uploads" sent to the router.
  * The content is encode using base64
@@ -13,10 +12,8 @@ export default class FileUpload {
       this.content = content;
     }
   }
-  get content() {
-    return toByteArray(this.contentBase64 || '');
-  }
   set content(content) {
-    this.contentBase64 = fromByteArray(content || '');
+// eslint-disable-next-line no-undef
+    this.contentBase64 = window.btoa(unescape(encodeURIComponent(content || '')));
   }
 }
