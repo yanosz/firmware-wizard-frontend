@@ -18,10 +18,16 @@ export default module('app.services.online', [])
 
     probe() {
       // TODO: use a freifunk url with enabled CORS
+      this.isPolicyProblem = false;
       const probePromise = this.$http.head('https://paperhive.org/api/');
       probePromise.then(
         () => (this.isOnline = true),
-        () => (this.isOnline = false),
+        (data) => {
+          if (data.status === -1) {
+            this.isPolicyProblem = true;
+          }
+          this.isOnline = false;
+        },
       );
       return probePromise;
     }
