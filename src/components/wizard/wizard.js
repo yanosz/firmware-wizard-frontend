@@ -34,11 +34,14 @@ export default module('app.components.wizard', [uiRouter])
         this.online = online;
         this.router = router;
         this.session = session;
-        $scope.$watch('$ctrl.router', this.downloadConfig());
+        $scope.$watchCollection('$ctrl.session.authentication', (data) => {
+          this.downloadConfig();
+        });
       }
 
 
       downloadConfig() {
+        console.log('Downloading configuration');
         this.router.getNetworkConfig().then((config) => {
           this.networkConfig = config.values;
         }).catch(() => {

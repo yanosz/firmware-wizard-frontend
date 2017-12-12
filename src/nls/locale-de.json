@@ -16,7 +16,8 @@
     "urllabel": "URL",
     "passwordlabel": "Passwort",
     "login": "Anmelden",
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "policyError" : "Verbindung zum Router konnte nicht vollständig aufgebaut werden. <br /> Evtl. schränkt ein Browser-Plugin oder Firewall die Kommunikation ein."
   },
   "loadconfig": {
     "headline": "Konfiguration laden",

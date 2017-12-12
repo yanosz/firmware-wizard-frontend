@@ -40,5 +40,10 @@
       Could not sign you in. Check your password and the connection the
       router.
     </p>
+    <p ng-if="$ctrl.session.isPolicyProblem" class="text-danger" translate>
+      <i class="fa fa-fw fa-warning" ></i>
+      authentication.policyError
+    </p>
+
   </div>
 </form>

@@ -36,6 +36,7 @@ export default module('app.services.session', [])
         return this.$q.reject(new Error('already connecting.'));
       }
       this.connecting = true;
+      this.isPolicyProblem = false;
       this.currentConnect = this.probeSystemBoard(apiUrl).then(
         (data) => {
           this.connecting = false;
@@ -46,6 +47,9 @@ export default module('app.services.session', [])
           return this.$q(resolve => this.authenticate().finally(() => resolve(this.connection)));
         },
         (data) => {
+          if (data.status === -1) {
+            this.isPolicyProblem = true;
+          }
           this.connecting = false;
           this.connection = undefined;
           this.authentication = undefined;

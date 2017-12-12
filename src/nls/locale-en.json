@@ -16,7 +16,9 @@
     "urllabel": "URL",
     "passwordlabel": "Password",
     "login": "Login",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "policyError" : "Connection could not be established completely.<br /> Please check your browser (privacy plugin) and local firewall settings."
+
   },
   "loadconfig": {
     "headline": "Load configuration",
