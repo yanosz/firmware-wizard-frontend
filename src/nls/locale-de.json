@@ -8,7 +8,7 @@
   "freifunk": "Wir unterstützen das <a href=\"\" target=\"_blank\">Pico Peering Agreement</a>. Bitte informiere dich auch über unsere <a href=\"https://freifunk.net/en/what-is-it-about/our-vision/\" target=\"_blank\">Vision</a> und unser <a href=\"http://blog.freifunk.net/2015/memorandum-understanding\" target=\"_blank\">Memorandum Of Understanding</a>.",
   "offlineWarning": {
     "headline": "Keine Internetverbindung",
-    "help" : "Einige Funktionen dieses Assistenten brauchen eine Internetverbindung. Du kannst entweder deinen Router mit dem Internet verbinden oder diese <a href=\"#\">Onlineversion des Assistenten</a> nutzen",
+    "help" : "Einige Funktionen dieses Assistenten brauchen eine Internetverbindung. Du kannst entweder deinen Router mit dem Internet verbinden.",
     "policyError" : "Der Status der Internetverbindung kann nicht korrekt überprüft werden. Möglicherweise schränken Dein Browser, Privacy-Plugins oder eine Firewall die Kommunikation mit dem Internet ein."
   },
   "authentication": {
