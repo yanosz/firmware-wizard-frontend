@@ -1,12 +1,14 @@
-import { copy, module } from 'angular';
-import IpConfig from '../../model/ip-config';
+ import { copy, module } from 'angular';
+ import IpConfig from '../../model/ip-config';
 
-export default module('app.components.wizard-ip', [])
+ export default module('app.components.wizard-ip', [])
   .component('wizardIp', {
     bindings: {
       wirelessDevices: '<',
       ip: '<',
       onUpdate: '&',
+      firewallConfig: '<',
+      networkConfig: '<',
     },
     controller: class WizardIpCtrl {
       constructor($scope) {

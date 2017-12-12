@@ -1,5 +1,6 @@
 import { module } from 'angular';
 import TunnelOperator from '../model/tunnel-operator';
+import ExistingUciConfig from '../model/existing-uci-config';
 
 export default module('app.services.router', [])
   .service('router', class RouterService {
@@ -72,12 +73,17 @@ export default module('app.services.router', [])
       let uploads = [];
       let uciCommands = '';
       let lineInFiles = [];
+      const existingUciConfig = new ExistingUciConfig({
+        network: networkConfig,
+        firewall: firewallConfig,
 
+      });
+      console.log('Constructing:', [config.router, config.ip, config.vpn]);
       [config.router, config.ip, config.vpn].forEach((conf) => {
         if (conf) {
-          uploads = uploads.concat(conf.fileUploads());
-          uciCommands += conf.uciSettings();
-          lineInFiles = lineInFiles.concat(conf.lineInFiles());
+          uploads = uploads.concat(conf.fileUploads(existingUciConfig));
+          uciCommands += conf.uciSettings(existingUciConfig);
+          lineInFiles = lineInFiles.concat(conf.lineInFiles(existingUciConfig));
         }
       });
 

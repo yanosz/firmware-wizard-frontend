@@ -1,15 +1,17 @@
-/* eslint-disable class-methods-use-this */
+/* eslint-disable class-methods-use-this,no-unused-vars */
+import ExistingUciConfig from './existing-uci-config';
+
 export default class BaseConfig {
 
     // By default, there are no settings or upads
-  uciSettings() {
+  uciSettings(existingUciConfig) {
     return '';
   }
-  fileUploads() {
+  fileUploads(existingUciConfig) {
     return [];
   }
 
-  lineInFiles() {
+  lineInFiles(existingUciConfig) {
     return [];
   }
 }

@@ -9,8 +9,8 @@ export default class VpnConfig extends BaseConfig {
     this.tunnelOperator = tunnelOperator;
   }
 
-  uciSettings() {
-    let result = super.uciSettings();
+  uciSettings(existingUciConfig) {
+    let result = super.uciSettings(existingUciConfig);
     if (this.tunnelOperator) {
       TunnelOperator.allOperators().forEach((op) => {
         if (op.uciFlag) {
@@ -22,8 +22,8 @@ export default class VpnConfig extends BaseConfig {
     return result;
   }
 
-  fileUploads() {
-    const fileUploads = super.fileUploads();
+  fileUploads(existingUciConfig) {
+    const fileUploads = super.fileUploads(existingUciConfig);
     // 1st: Regular Uploads chosen by user
     if (this.tunnelOperator.uploads) {
       this.tunnelOperator.uploads.forEach((upload) => {

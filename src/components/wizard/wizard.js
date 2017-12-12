@@ -48,6 +48,7 @@ export default module('app.components.wizard', [uiRouter])
           this.networkConfig = {};
         });
         this.router.getFirewallConfig().then((config) => {
+          console.log('Values:', config.values);
           this.firewallConfig = config.values;
         }).catch(() => {
           this.firewallConfig = {};
