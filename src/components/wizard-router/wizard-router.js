@@ -47,6 +47,7 @@ export default module('app.components.wizard-router', [])
         if (this.password === this.passwordHashed) return;
         this.passwordHashed = this.password;
         this.passwordHash = crypt(this.password);
+        this.passwordChanged = true;
       }
 
       updateFromInput(router) {
@@ -66,6 +67,7 @@ export default module('app.components.wizard-router', [])
           name: this.name,
           passwordHash: this.passwordHash,
           sshkeys: this.sshkeysEnabled ? this.sshkeys : undefined,
+          passwordChanged: this.passwordChanged, // Pass by callback to avoid serializiton
         });
         this.onRouterUpdate({router});
       }

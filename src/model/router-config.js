@@ -3,11 +3,12 @@ import LineInFile from './dto/line-in-file';
 import FileUpload from './dto/file-upload';
 
 export default class RouterConfig extends BaseConfig {
-  constructor({name, passwordHash, sshkeys} = {}) {
+  constructor({name, passwordHash, sshkeys, passwordChanged} = {}) {
     super();
     this.name = name;
     this.passwordHash = passwordHash;
     this.sshkeys = sshkeys;
+    this.passwordChanged = passwordChanged;
   }
 
   // For now, its Hostname, only:
@@ -19,11 +20,14 @@ export default class RouterConfig extends BaseConfig {
 
   lineInFiles() {
     const ret = super.lineInFiles();
-    ret.push(new LineInFile({
-      path: '/etc/shadow',
-      regexp: '^root:.*',
-      line: `root:${this.passwordHash}:0:0:99999:7:::`,
-    }));
+    if (this.passwordChanged) {
+      ret.push(new LineInFile({
+        path: '/etc/shadow',
+        regexp: '^root:.*',
+        line: `root:${this.passwordHash}:0:0:99999:7:::`,
+      }));
+    } else {
+    }
     return ret;
   }
   fileUploads() {
@@ -35,5 +39,12 @@ export default class RouterConfig extends BaseConfig {
       }));
     }
     return uploads;
+  }
+
+  get passwordChanged() {
+    return this.pwChanged(); // Set callback to avoid serialization
+  }
+  set passwordChanged(passwordChanged) {
+    this.pwChanged = () => (passwordChanged); // Set callback to avoid serialization
   }
 }
