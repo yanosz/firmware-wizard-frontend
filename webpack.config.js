@@ -25,7 +25,7 @@ module.exports = {
         // upstream files that only need to be copied
         include: [path.resolve(__dirname, 'node_modules')],
         test: /\.(eot|ttf|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "file-loader",
+        loader: 'file-loader',
         query: {name: 'assets/[name].[md5:hash:hex:8].[ext]'},
       },
       {
@@ -58,7 +58,7 @@ module.exports = {
             loader: 'file-loader',
             query: {
               context: 'src',
-              name: '[path][name].[md5:hash:hex:8].[ext]'
+              name: '[path][name].[md5:hash:hex:8].[ext]',
             },
           },
           'image-webpack-loader',
@@ -90,7 +90,8 @@ module.exports = {
     extractCss,
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      dev: process.env.NODE_ENV !== 'production'
+      dev: process.env.NODE_ENV !== 'production',
+      filename: 'wizard.html',
     }),
   ],
   performance: {

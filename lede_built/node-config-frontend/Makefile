@@ -9,16 +9,17 @@ PKG_RELEASE:=1
 include $(INCLUDE_DIR)/package.mk
 
 # Package definition; instructs on how and where our package will appear in the overall configuration menu ('make menuconfig')
-define Package/node-config
+define Package/node-config-frontend
 	SECTION:=freifunk
 	CATEGORY:=Freifunk
-	TITLE:=Node Config Scripts (Frontend)
+	TITLE:=Frontend for Node Config Scripts
+	DEPENDS:=+coreutils-base64 +uhttpd-mod-ubus
 endef
 
 # Package description; a more verbose description on what our package does
-define Package/node-config/description
-	Frontend: https://github.com/yanosz/firmware-wizard-frontend
-	Cf. DIY Freifunk-Router - see https://github.com/yanosz/node-config for details.
+define Package/node-config-frontend/description
+    AngularJS frontend for:
+	DIY Freifunk-Router - see https://github.com/yanosz/node-config-frontend for details.
 endef
 
 # Package preparation instructions; create the build directory and copy the source code.
@@ -26,6 +27,7 @@ endef
 define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
 	$(CP) $(PWD)/../dist $(PKG_BUILD_DIR)
+	$(CP) $(PWD)/../files $(PKG_BUILD_DIR)
 	cp Makefile $(PKG_BUILD_DIR)
 endef
 
@@ -34,10 +36,15 @@ define Build/Compile/Default
 endef
 Build/Compile = $(Build/Compile/Default)
 
-# Package install instructions; create a directory inside the package to hold our executable, and then copy the executable we built previously into the folder
-define Package/node-config/install
-	$(CP) $(PKG_BUILD_DIR)/dist $(1)/lib/freifunk/frontend
+define Package/node-config-frontend/install
+	$(INSTALL_DIR) $(1)/www
+	$(INSTALL_DIR) $(1)/etc/uci-defaults
+	$(INSTALL_DIR) $(1)/usr/libexec
+	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d/
+	$(CP) $(PKG_BUILD_DIR)/dist/* $(1)/www
+	$(INSTALL_BIN)  $(PKG_BUILD_DIR)/files/uci-defaults $(1)/etc/uci-defaults/ff-wizard-frontend
+	$(INSTALL_BIN)  $(PKG_BUILD_DIR)/files/ffwizard.sh $(1)/usr/libexec/ffwizard.sh
+	$(INSTALL_BIN)  $(PKG_BUILD_DIR)/files/ffwizard.json $(1)/usr/share/rpcd/acl.d/ffwizard.json
 endef
 
-# This command is always the last, it uses the definitions and variables we give above in order to get the job done
 $(eval $(call BuildPackage,node-config-frontend))

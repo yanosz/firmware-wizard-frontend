@@ -6,7 +6,7 @@
   "scripts": {
     "test": "exit 1",
     "lint": "eslint src",
-    "build": "npm run clean && npm run build:webpack",
+    "build": "npm run clean && npm run build:webpack && rm -rf dist/*.map",
     "build:webpack": "webpack --optimize-minimize",
     "clean": "rm -rf dist/*",
     "watch": "npm run clean && npm run watch:webpack",

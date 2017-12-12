@@ -11,7 +11,7 @@ export default module('app.components.luci-ref', [])
       }
 
       probe() {
-        const luciPromise = this.$http.head('/cgi-bin/luci');
+        const luciPromise = this.$http.get('/cgi-bin/luci');
         luciPromise.then(
           () => (this.hasLuci = true),
           () => (this.hasLuci = false),

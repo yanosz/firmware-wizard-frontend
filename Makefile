@@ -1,9 +1,9 @@
 ifndef LEDE_MIRROR
-  LEDE_MIRROR:=https://downloads.lede-project.org
+  LEDE_MIRROR:=https://downloads.lede-project.org/releases/
 endif
 
 ifndef LEDE_SDK
-  LEDE_SDK:=/releases/17.01.3/targets/x86/64/lede-imagebuilder-17.01.3-x86-64.Linux-x86_64.tar.xz
+  LEDE_SDK:=17.01.3/targets/x86/64/lede-sdk-17.01.3-x86-64_gcc-5.4.0_musl-1.1.16.Linux-x86_64.tar.xz
 endif
 
 SDK_FILE:= $(notdir $(LEDE_SDK))
@@ -27,13 +27,13 @@ else
   SIGN_STR:="CONFIG_SIGNED_PACKAGES="
 endif
 
-world: target/bin/packages/all/nodeconfig/Packages
+world: target/bin/packages/all/nodeconfig-frontend/Packages
 
 clean:
-	$(RM) -rf target
+	$(RM) -rf target dist
 
 dist/index.js:
-	npm run build
+	export NODE_ENV=production && npm run build
 
 target: dist/index.js
 	mkdir -p target
@@ -47,8 +47,14 @@ target/.config: target
 	./target/scripts/feeds install -a
 	$(MAKE) -C target defconfig
 
-target/bin/packages/all/nodeconfig/Packages: target/.config
+target/bin/packages/all/nodeconfig-frontend/Packages: target/.config
+	#export NODE_ENV=production
+	#npm run build
 	@echo Version: $(PKG_VERSION)
 	$(MAKE) -C target package/node-config-frontend/compile CONFIG_TARGET_ARCH_PACKAGES=all PKG_VERSION=$(PKG_VERSION)
 	$(MAKE) -C target package/index CONFIG_TARGET_ARCH_PACKAGES=all $(SIGN_STR)
 	$(RM) -rf target/bin/packages/all/base/
+
+
+
+

@@ -1,0 +1,5 @@
+#!/bin/sh
+# Make sure to use index.htm for index - by that, the wizard and luci can co-exist
+uci set uhttpd.main.index_page='wizard.html index.html index.htm default.html default.htm index.php'
+uci commit uhttpd
+exit 0
