@@ -25,7 +25,7 @@ endef
 # Package preparation instructions; create the build directory and copy the source code.
 # The last command is necessary to ensure our preparation instructions remain compatible with the patching system.
 define Build/Prepare
-	cd ../../ && npm install &&  NODE_ENV_production npm run build
+	cd ../../ && npm install && npm install && NODE_ENV=production npm run build
 	mkdir -p $(PKG_BUILD_DIR)
 	$(CP) ../../dist $(PKG_BUILD_DIR)
 	$(CP) ../../files $(PKG_BUILD_DIR)
