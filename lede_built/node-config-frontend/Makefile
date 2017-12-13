@@ -26,8 +26,8 @@ endef
 # The last command is necessary to ensure our preparation instructions remain compatible with the patching system.
 define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
-	$(CP) $(PWD)/../dist $(PKG_BUILD_DIR)
-	$(CP) $(PWD)/../files $(PKG_BUILD_DIR)
+	$(CP) ../../dist $(PKG_BUILD_DIR)
+	$(CP) ../../files $(PKG_BUILD_DIR)
 	cp Makefile $(PKG_BUILD_DIR)
 endef
 
