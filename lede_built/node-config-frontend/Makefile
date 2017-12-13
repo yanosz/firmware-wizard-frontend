@@ -40,7 +40,7 @@ Build/Compile = $(Build/Compile/Default)
 define Package/node-config-frontend/install
 	$(INSTALL_DIR) $(1)/www
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
-	$(INSTALL_DIR) $(1)/usr/libexec
+	$(INSTALL_DIR) $(1)/usr/libexec/rpcd
 	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d/
 	$(CP) $(PKG_BUILD_DIR)/dist/* $(1)/www
 	$(INSTALL_BIN)  $(PKG_BUILD_DIR)/files/uci-defaults $(1)/etc/uci-defaults/ff-wizard-frontend
