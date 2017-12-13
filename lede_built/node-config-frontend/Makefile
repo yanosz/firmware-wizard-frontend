@@ -44,7 +44,7 @@ define Package/node-config-frontend/install
 	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d/
 	$(CP) $(PKG_BUILD_DIR)/dist/* $(1)/www
 	$(INSTALL_BIN)  $(PKG_BUILD_DIR)/files/uci-defaults $(1)/etc/uci-defaults/ff-wizard-frontend
-	$(INSTALL_BIN)  $(PKG_BUILD_DIR)/files/ffwizard.sh $(1)/usr/libexec/ffwizard.sh
+	$(INSTALL_BIN)  $(PKG_BUILD_DIR)/files/ffwizard.sh $(1)/usr/libexec/rpcd/ffwizard.sh
 	$(INSTALL_BIN)  $(PKG_BUILD_DIR)/files/ffwizard.json $(1)/usr/share/rpcd/acl.d/ffwizard.json
 endef
 

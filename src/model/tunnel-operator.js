@@ -2,20 +2,25 @@ import {copy} from 'angular';
 
 export default class TunnelOperator {
 
-  constructor(id, {uploads, fields} = {}) {
+  constructor(id, {uploads, fields, name} = {}) {
     this.id = id;
     this.uploads = uploads;
     this.fields = fields;
+    this.name = name;
   }
 
     // Mullvad: Login via account-number
   static mullvad() {
     const op = new TunnelOperator('vpn.operator.mullvad', {
+      name: 'mullvad',
       uploads: [],
       fields: [{
         key: 'account',
         desc: 'vpn.operator.mullvad.account_no.desc',
-        toFile: '/lib/freifunk/vpn/mullvad/mullvad_userpass.txt',
+        lineInFile: {
+          path: '/lib/freifunk/vpn/mullvad/mullvad_userpass.txt',
+          regexp: '^.*',
+        },
       }],
     });
     return op;
@@ -24,6 +29,7 @@ export default class TunnelOperator {
     // Yanosz: Upload: Key, certificate
   static yanosz() {
     return new TunnelOperator('vpn.operator.yanosz', {
+      name: 'yanosz',
       uploads: [{
         key: 'cert',
         desc: 'vpn.operator.desc.cert',
@@ -43,6 +49,7 @@ export default class TunnelOperator {
 
   static berlin() {
     return new TunnelOperator('vpn.operator.berlin_udp', {
+      name: 'berlin_udp',
       uploads: [{
         key: 'cert',
         desc: 'vpn.operator.desc.cert',
@@ -62,13 +69,15 @@ export default class TunnelOperator {
 
   static berlinTcp() {
     const template = copy(this.berlin());
-    template.name = 'vpn.operator.berlin_tcp';
+    template.id = 'vpn.operator.berlin_tcp';
+    template.name = 'berlin_tcp';
     return template;
   }
 
     // Freifunk KBU: Login ueber cert / key
   static kbu() {
     return new TunnelOperator('vpn.operator.freifunk_kbu', {
+      name: 'freifunk_kbu',
       uploads: [{
         key: 'cert',
         desc: 'vpn.operator.desc.cert',

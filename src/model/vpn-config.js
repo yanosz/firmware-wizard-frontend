@@ -1,6 +1,7 @@
 import BaseConfig from './base-config';
 import TunnelOperator from './tunnel-operator';
 import FileUpload from './dto/file-upload';
+import LineInFile from './dto/line-in-file';
 
 export default class VpnConfig extends BaseConfig {
 
@@ -13,8 +14,8 @@ export default class VpnConfig extends BaseConfig {
     let result = super.uciSettings(existingUciConfig);
     if (this.tunnelOperator) {
       TunnelOperator.allOperators().forEach((op) => {
-        if (op.uciFlag) {
-          result += `set openvpn.${op.uciFlag}.enabled = ${(op.name === this.tunnelOperator.name) ? 1 : 0}\n`;
+        if (op.name) {
+          result += `set openvpn.${op.name}.enabled='${(op.name === this.tunnelOperator.name) ? 1 : 0}'\n`;
         }
       });
       result += 'commit openvpn\n';
@@ -35,24 +36,23 @@ export default class VpnConfig extends BaseConfig {
         }
       });
     }
-    // 2nd: Fields resulting in Uploads
+    return fileUploads;
+  }
+
+  lineInFiles(existingUciConfig) {
+    const lineInFiles = super.lineInFiles(existingUciConfig);
     if (this.tunnelOperator.fields) {
       this.tunnelOperator.fields.forEach((field) => {
-        console.log('Checking field', field);
-        if (field.toFile) {
-          fileUploads.push(new FileUpload({
-            path: field.toFile,
-            content: field.input,
+        if (field.lineInFile) {
+          lineInFiles.push(new LineInFile({
+            path: field.lineInFile.path,
+            line: field.input,
+            regexp: field.lineInFile.regexp,
           }));
         }
       });
     }
-
-    return fileUploads;
-  }
-
-  debug() {
-    console.log('VpnConfig:', this);
+    return lineInFiles;
   }
 }
 

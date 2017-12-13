@@ -78,13 +78,19 @@ export default module('app.services.router', [])
         firewall: firewallConfig,
 
       });
-      console.log('Constructing:', [config.router, config.ip, config.vpn]);
       [config.router, config.ip, config.vpn].forEach((conf) => {
         if (conf) {
           uploads = uploads.concat(conf.fileUploads(existingUciConfig));
           uciCommands += conf.uciSettings(existingUciConfig);
           lineInFiles = lineInFiles.concat(conf.lineInFiles(existingUciConfig));
         }
+      });
+
+      console.log('Sending :', {
+        uciCommands,
+        uploads,
+        lineInFiles,
+        config,
       });
 
       return this.call('ffwizard.sh', 'apply', {

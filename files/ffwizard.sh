@@ -91,6 +91,7 @@ case "$1" in
         config=$(jsonfilter -s "${json}" -e '@.config')
         uploads=$(jsonfilter -s "${json}" -e '@.uploads')
         lineInFiles=$(jsonfilter -s "${json}" -e '@.lineInFiles')
+        logger "Line in files: ${lineInFiles}"
         uci_batch_command=$(jsonfilter -s "${json}" -e '@.uci_batch_commands_base64')
 
         handleArray "${uploads}" "handleUpload"
