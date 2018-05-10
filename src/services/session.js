@@ -10,13 +10,14 @@ export default module('app.services.session', [])
 
       this.$q = $q;
       this.jsonrpc = jsonrpc;
+
       this.$window = $window;
       this.timeout = 3600; // seconds
       this.initialSessionId = '00000000000000000000000000000000';
 
       // try to connect to url in local storage or to current url
-      const apiUrl = $window.localStorage.apiUrl || `${$location.protocol()}://${$location.host()}:${$location.port()}/ubus`;
-      // const apiUrl = 'http://192.168.1.1/ubus';
+      // const apiUrl = $window.localStorage.apiUrl || `${$location.protocol()}://${$location.host()}:${$location.port()}/ubus`;
+      const apiUrl = 'http://192.168.1.1/ubus';
       console.log(`Connecting to ${apiUrl}`);
       this.currentConnect = this.connect(apiUrl);
     }

@@ -4,7 +4,6 @@ import 'angular-animate';   // ngAnimate module
 import 'angular-messages';  // ngAnimate module
 import 'angular-sanitize';  // ngSanitize module
 import 'angular-base64';  // ngSanitize module
-
 // dependency of ui-leaflet (global variable *facepalm*)
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'leaflet';
