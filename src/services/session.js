@@ -17,8 +17,6 @@ export default module('app.services.session', [])
 
       // try to connect to url in local storage or to current url
       const apiUrl = $window.localStorage.apiUrl || `${$location.protocol()}://${$location.host()}:${$location.port()}/ubus`;
-      // const apiUrl = 'http://192.168.1.1/ubus';
-      console.log(`Connecting to ${apiUrl}`);
       this.currentConnect = this.connect(apiUrl);
     }
 

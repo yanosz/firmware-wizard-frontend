@@ -381,9 +381,13 @@
   },
   "disabled_due_to_monitoring" : "Schalte das Monitoring ein, um Kontaktdaten zu übertragen.",
   "vpn" : {
+    "no_sharing": "Keine Internet Freigabe",
+    "direct_sharing": "Internet direkt freigeben. Hinweis: <i>Freifunk Deine IP-Adresse. Bitte halte eine Strategie für Missbrauchsfälle bereit.</i>",
+    "internet_sharing_mode": "Internet Freigabe",
+    "vpn_sharing": "Internet über VPN freigeben",
     "headline": "Internet Freifunk",
     "tunnel_operator_help" : "Nutze ein VPN (OpenVPN-Basis)",
-    "help": "Über einen VPN-Tunnel kannst Du das Internet freigeben und hast gleichzeitig einen brauchbaren Kontakt bei Abuse.",
+    "help": "Du kannst Dein Internet über einen Tunnel oder direkt freigeben.",
     "tunnel_operator" : "Tunnel Betreiber",
     "operator" : {
       "desc" : {

@@ -11,6 +11,31 @@
             <span translate>.help</span>
         </p>
         <div class="form-group has-feedback">
+            <label for="sharing-mode" class="col-md-3 control-label" translate>
+                .internet_sharing_mode
+            </label>
+            <div class="col-md-9">
+                <div class="radio">
+                    <label><input type="radio" name="sharing-mode" data-ng-model="$ctrl.newVpn.sharingMode" value="none">
+                        <span translate>.no_sharing</span>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="sharing-mode" data-ng-model="$ctrl.newVpn.sharingMode" value="direct">
+                        <span translate>.direct_sharing</span>
+                    </label>
+                </div>
+                <div class="radio disabled">
+                    <label><input type="radio" name="sharing-mode" data-ng-model="$ctrl.newVpn.sharingMode" value="vpn">
+                        <span translate>.vpn_sharing</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group has-feedback" uib-collapse="$ctrl.newVpn.sharingMode !== 'vpn'">
             <label for="tunnel-operator" class="col-md-3 control-label" translate>
                 .tunnel_operator
             </label>
@@ -28,6 +53,7 @@
     <div class="form-group has-feedback"
          ng-class="formFeedback('{{$ctrl.idPrefix}}.{{$ctrl.details.property}}')"
          ng-repeat="field in $ctrl.newVpn.tunnelOperator.fields"
+         uib-collapse="$ctrl.newVpn.sharingMode !== 'vpn'"
     >
         <label for="{{field.key}}" class="col-md-6 control-label">
             {{ field.desc | translate}}
@@ -43,6 +69,7 @@
     <div class="form-group has-feedback"
          ng-class="formFeedback('{{$ctrl.idPrefix}}.{{$ctrl.details.property}}')"
          ng-repeat="upload in $ctrl.newVpn.tunnelOperator.uploads"
+         uib-collapse="$ctrl.newVpn.sharingMode !== 'vpn'"
     >
         <label for="{{upload.key}}" class="col-xs-6 control-label">
             {{ upload.desc | translate}}

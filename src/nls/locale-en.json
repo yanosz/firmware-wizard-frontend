@@ -383,9 +383,13 @@
     "abstract": "This configuration wizard helps you to set up your router."
   },
   "vpn" : {
+    "no_sharing": "No internet sharing",
+    "direct_sharing": "Share local connection. Note: <i>All traffic will be using your ip address. Please mind abuse handling.</i>",
+    "internet_sharing_mode": "Internet sharing",
+    "vpn_sharing": "Share internet using a vpn tunnel",
     "headline": "Internet Sharing",
     "tunnel_operator_help" : "Use a VPN tunnel based on OpenVPN",
-    "help": "Using a VPN tunnel, you can share internet connection having an appropriate abuse desk.",
+    "help": "You can share your internet using a vpn tunnel or directly.",
     "tunnel_operator" : "Tunnel operator",
     "operator" : {
       "desc" : {
@@ -402,7 +406,7 @@
       },
       "frefiunk_kbu"  : {
         "name": "Freifunk KBU",
-        "help" : "Based in AS50472 - see <a href='https://kbu.freifunk.net/wiki/vpn-exit'>https://kbu.freifunk.net/wiki/vpn-exit</a> for details"
+        "help" : "Based in AS50472 - see <a href='Nohttps://kbu.freifunk.net/wiki/vpn-exit'>https://kbu.freifunk.net/wiki/vpn-exit</a> for details"
       },
       "mullvad"  : {
         "name": "Mullvad",

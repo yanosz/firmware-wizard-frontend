@@ -20,7 +20,8 @@ export default module('app.components.wizard-vpn', [])
         }
 
         updateFromInput(vpn = {}) {
-          this.newVpn = new VpnConfig(vpn.tunnelOperator || this.allTunnelOperators[0]);
+          this.newVpn = new VpnConfig(vpn.tunnelOperator || this.allTunnelOperators[0],
+            vpn.sharingMode || 'none');
         }
 
           /**
@@ -29,7 +30,6 @@ export default module('app.components.wizard-vpn', [])
            */
         updateOutput(newVpn = {}) {
           const vpn = new VpnConfig(newVpn.tunnelOperator);
-          console.log('onUpdate', newVpn.tunnelOperator.onUpdate);
           if (newVpn.tunnelOperator.onUpdate) {
             newVpn.tunnelOperator.onUpdate();
           }
