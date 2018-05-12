@@ -243,7 +243,7 @@
       "label": "IPv4 prefix",
       "error.required": "The IPv4 prefix is required. ",
       "error.ipAddress": "Please enter a valid IPv4 prefix.",
-      "error.ipPrefixMaxLength": "The IPv4 prefix length must be /24.",
+      "error.ipPrefixLength": "The IPv4 prefix length must be /24.",
       "placeholder": "example: 10.159.0.0/24"
     },
 
