@@ -29,7 +29,7 @@ export default module('app.components.wizard-vpn', [])
            * @param newVpn
            */
         updateOutput(newVpn = {}) {
-          const vpn = new VpnConfig(newVpn.tunnelOperator);
+          const vpn = new VpnConfig(newVpn.tunnelOperator, newVpn.sharingMode);
           if (newVpn.tunnelOperator.onUpdate) {
             newVpn.tunnelOperator.onUpdate();
           }

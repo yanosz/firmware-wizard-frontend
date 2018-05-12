@@ -8,7 +8,8 @@
             <span translate>.headline</span>
         </h2>
         <p>
-            <span translate>.help</span>
+            <span translate>.help</span><br />
+            <span translate>.privacyNote</span>
         </p>
         <div class="form-group has-feedback">
             <label for="sharing-mode" class="col-md-3 control-label" translate>
@@ -35,7 +36,9 @@
 
 
 
-        <div class="form-group has-feedback" uib-collapse="$ctrl.newVpn.sharingMode !== 'vpn'">
+        <div class="form-group has-feedback"
+        uib-collapse="$ctrl.newVpn.sharingMode !== 'vpn'"
+        >
             <label for="tunnel-operator" class="col-md-3 control-label" translate>
                 .tunnel_operator
             </label>
@@ -47,7 +50,7 @@
                         ng-options="o as (o.id + '.name' | translate) for o in $ctrl.allTunnelOperators track by o.id" >
                         ang-options="o.name + '.name' | translate for o in $ctrl.allTunnelOperators" >
                 </select>
-                <div class="help-block" translate>{{ $ctrl.newVpn.tunnelOperator.name + ".help" }}</div>
+                <div class="help-block" translate>{{ ".operator."+($ctrl.newVpn.tunnelOperator.name || 'none') + ".help" }}</div>
             </div>
         </div>
     <div class="form-group has-feedback"

@@ -253,11 +253,11 @@
   "monitoring" : {
     "server" : "Server",
     "headline" : "Monitoring",
-    "show" : "Öffentliches Monitoring - Zeigt Deinen Routerstatus auf der Karte an.",
+    "show" : "Öffentliches Monitoring - Ich simme der Veröffentlichung meiner Daten im Internet zu.",
     "label" : "Monitoring einschalten",
     "help" : "Unter <a href=\"http://monitor.berlin.freifunk.net\" target=\"_blank\">http://map.kbu.freifunk.net</a> erreichst du den Monitoring Service. Dort werden Daten über Kontaktdaten, Standort, Übertragungsgeschwindigkeiten, Speicher, CPU und Netzwerkverbindungen gesammelt.",
-    "default": "Default: fdd3:5d16:b5dd:fc33:70d0:57ff:febb:8f14"
-
+    "default": "Default: fdd3:5d16:b5dd:fc33:70d0:57ff:febb:8f14",
+    "privacyNote": "In dem Du das öffentliche Monitoring aktivierst, stimmst Du der Veröffentliung Deiner Daten (Kontakt, Adresse) im Internet zu."
   },
   "advancedWifi": {
     "headline": "Erweiterte Wifi Optionen",
@@ -413,7 +413,7 @@
         },
         "help": "Accounts gibt's unter <a href='https://mullvad.se'>https://mullvad.se</a>"
       },
-      "berlin_udp" : {
+      "berlin_udp" : {operator
         "name" : "Freifunk Berlin (schnell: udp, unverschlüsselt)",
         "help" : "vpn03 - Infos unter <a href='https://wiki.freifunk.net/Vpn03'>https://wiki.freifunk.net/Vpn03</a>."
       },

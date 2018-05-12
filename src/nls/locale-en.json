@@ -255,10 +255,12 @@
   "monitoring" : {
     "server" : "Server",
     "headline" : "Monitoring",
-    "show" : "Public monitoring - Show your status on the map",
+    "show" : "Public monitoring - I agree to publish my personal data on the internet.",
     "label" : "Enable Monitoring",
     "help" : "Monitoring services are available at <a href=\"https://map.kbu.freifunk.net\" target=\"_blank\">http://map.kbu.freifunk.net</a>. They collect information about postions, contacts, transfer speeds, memory and CPU statistics and network connections.",
-    "default": "Default: fdd3:5d16:b5dd:fc33:70d0:57ff:febb:8f14"
+    "default": "Default: fdd3:5d16:b5dd:fc33:70d0:57ff:febb:8f14",
+    "privacyNote": "By enabling public monitoring, you agree to publish personal data (contact, address) on the internet."
+
   },
   "advancedWifi": {
     "headline": "Advanced wifi options",
@@ -404,7 +406,7 @@
         "name" : "Freifunk Euskirchen",
         "help" : "TODO kevin (FFRL e.V.)"
       },
-      "frefiunk_kbu"  : {
+      "freifunk_kbu"  : {
         "name": "Freifunk KBU",
         "help" : "Based in AS50472 - see <a href='Nohttps://kbu.freifunk.net/wiki/vpn-exit'>https://kbu.freifunk.net/wiki/vpn-exit</a> for details"
       },
