@@ -17,7 +17,7 @@ export default class VpnConfig extends BaseConfig {
     if (this.tunnelOperator) {
       TunnelOperator.allOperators().forEach((op) => {
         if (op.name) {
-          result += `set openvpn.${op.name}.enabled='${(op.name === this.tunnelOperator.name) ? 1 : 0}'\n`;
+          result += `set openvpn.${op.name}.enabled='${(op.name === this.tunnelOperator.name && this.sharingMode === 'vpn') ? 1 : 0}'\n`;
         }
       });
       result += 'commit openvpn\n';
