@@ -39,7 +39,7 @@
       "label": "Wireless devices"
     }
   },
-  "basicRouterSetup": {
+  "routerForm": {
     "headline": "Basic router setup",
     "routerName": {
       "label": "Router name",

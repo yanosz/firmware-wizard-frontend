@@ -37,7 +37,7 @@
       "label": "WLAN-Schnittstellen"
     }
   },
-  "basicRouterSetup": {
+  "routerForm": {
     "headline": "Basis Router Einrichtung ",
     "routerName": {
       "label": "Routername",

@@ -103,6 +103,7 @@
       <button type="button" class="btn btn-default" ng-click="$ctrl.download()">
         <i class="fa fa-fw fa-download"></i> <span translate>download</span>
       </button>
+      {{ wizardForm | errorList }}
       <button type="submit" class="btn btn-primary"
         ng-disabled="wizardForm.$invalid || !$ctrl.session.connection ||
           !$ctrl.session.authentication || $ctrl.submitting"
